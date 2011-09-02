@@ -1,0 +1,16 @@
+*.pyc
+*.db
+localsettings.py
+.DS_Store
+*.py~
+*.pyc~
+*.html~
+*.js~
+*.css~
+*.txt~
+.gitignore~
+.project
+.pydevproject
+.settings
+.svn/
+/.git
