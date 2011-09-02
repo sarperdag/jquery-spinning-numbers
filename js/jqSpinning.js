@@ -40,7 +40,6 @@ function initialize(initial_value){
     for (i=0;i<digit_count;i++){
         $("#credits").append("<div id='c_digit_" + i + "' class='digit'></div>");
         $("#c_digit_" + i).css({backgroundPosition: "0px -" + initial_value[i] * 60 + "px"});
-        $("#c_digit_" + i).html(i);
     }
     final_value = parseInt(initial_value);
 }
