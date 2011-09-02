@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>jQuery Roller</title>
+		<link rel="stylesheet" href="css/roller.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<style>
+			div.seperator { height:30px; clear:both; }
+		</style>
+	</head>
+	<body>
+		<div id="credits_view">
+			<div id="credits">
+			</div>
+		</div>
+		<div class="seperator"></div>
+		<input type="button" onclick="increment(663)" value="Increase">
+
+		<script src="js/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery_roller.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(document).ready(function() {
+				//$("#credits").jqRoll();
+				initialize(999);
+			});
+		</script>
+	</body>
+</html>

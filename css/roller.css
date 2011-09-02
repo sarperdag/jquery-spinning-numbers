@@ -1,0 +1,7 @@
+#credits_view { 
+    background-color:#ff0066; color:#FFF; padding:10px; height:65px; text-align:center;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+#credits { padding-left:15px; }
+#credits .digit {background:url('../images/credits_scroller.png') repeat 0 0; width:34px; height:60px; float:left;}
