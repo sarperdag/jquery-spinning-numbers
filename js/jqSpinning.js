@@ -53,11 +53,9 @@ function increment(amount){
     if(new_digit_count>digit_count){
         var pos = new_digit_count-1;
         $("#credits").append("<div id='c_digit_" + pos + "' class='digit'></div>");
-        $("#c_digit_" + pos).html(pos);
     }
     for (i=0;i<new_digit_count;i++){
         $("#c_digit_" + i).animate({backgroundPosition:"(0px -" + (final_value[i] * 60) + "px)"}, {duration:800});
-        $("#c_digit_" + i).html(i);
     }
     
     final_value = parseInt(final_value);
