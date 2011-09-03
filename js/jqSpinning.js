@@ -1,5 +1,5 @@
 /**
- jQuery Roller v. 0.5
+ jQuery Spinning Numbers v. 0.8
  by Sarp Erdag
 */
 
@@ -28,35 +28,54 @@
            }
         }
 	});
+	
+	var Spinning = function(element, options)
+    {
+        var elem = $(element);
+        var obj = this;
+        
+        var settings = $.extend({
+            initial_value: 0
+        }, options || { });
+
+        var final_value;
+        var digit_count = 0;
+        
+        var initial_value = settings["initial_value"].toString();
+        var i = 0;
+        digit_count = initial_value.length;
+        for (i=0;i<digit_count;i++){
+            $("#credits").append("<div id='c_digit_" + i + "' class='digit'></div>");
+            $("#c_digit_" + i).css({backgroundPosition: "0px -" + initial_value[i] * 60 + "px"});
+        }
+        final_value = parseInt(initial_value);
+        
+        this.increment = function(amount) {
+            final_value = final_value + amount;
+            final_value = final_value.toString();
+
+            new_digit_count = final_value.length;
+            if(new_digit_count>digit_count){
+                var pos = new_digit_count-1;
+                $("#credits").append("<div id='c_digit_" + pos + "' class='digit'></div>");
+            }
+            for (i=0;i<new_digit_count;i++){
+                $("#c_digit_" + i).animate({backgroundPosition:"(0px -" + (final_value[i] * 60) + "px)"}, {duration:800});
+            }
+
+            final_value = parseInt(final_value);
+            digit_count = new_digit_count;
+        };
+    };
+	
+    $.fn.spinning = function(options)
+    {
+        return this.each(function()
+        {
+            var element = $(this);
+            if (element.data('spinning')) return;
+            var plugin = new Spinning(this, options);
+            element.data('spinning', plugin);
+        });
+    };
 })(jQuery);
-
-var final_value;
-var digit_count = 0;
-
-function initialize(initial_value){
-    initial_value = initial_value.toString();
-    var i = 0;
-    digit_count = initial_value.length;
-    for (i=0;i<digit_count;i++){
-        $("#credits").append("<div id='c_digit_" + i + "' class='digit'></div>");
-        $("#c_digit_" + i).css({backgroundPosition: "0px -" + initial_value[i] * 60 + "px"});
-    }
-    final_value = parseInt(initial_value);
-}
-
-function increment(amount){
-    final_value = final_value + amount;
-    final_value = final_value.toString();
-    
-    new_digit_count = final_value.length;
-    if(new_digit_count>digit_count){
-        var pos = new_digit_count-1;
-        $("#credits").append("<div id='c_digit_" + pos + "' class='digit'></div>");
-    }
-    for (i=0;i<new_digit_count;i++){
-        $("#c_digit_" + i).animate({backgroundPosition:"(0px -" + (final_value[i] * 60) + "px)"}, {duration:800});
-    }
-    
-    final_value = parseInt(final_value);
-    digit_count = new_digit_count;
-}

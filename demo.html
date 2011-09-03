@@ -13,14 +13,19 @@
 			</div>
 		</div>
 		<div class="seperator"></div>
-		<input type="button" onclick="increment(663)" value="Increase">
+		<input type="button" value="Increase" id="increase_score">
 
 		<script src="js/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jqSpinning.js" type="text/javascript" charset="utf-8"></script>
 		
 		<script>
 			$(document).ready(function() {
-				initialize(999);
+				$("#credits").spinning({ initial_value:200 });
+				var scoreView = $('#credits').data("spinning");
+				
+				$("#increase_score").click(function(){
+					scoreView.increment(10);
+				});
 			});
 		</script>
 	</body>

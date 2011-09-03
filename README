@@ -1,3 +1,10 @@
-jQuery Spinning Numbers lets you create spinning numbers in a slot machine effect. 
+"jQuery Spinning Numbers" lets you simply create spinning numbers in a slot machine effect. 
 
-Just run demo.html and see it for yourself. More detailed instructions on how to run the thing will be coming soon.
+Just run demo.html and see it for yourself. Here is a quick usage:
+
+$("#credits").spinning({ initial_value:200 });
+var scoreView = $('#credits').data("spinning");
+scoreView.increment(10);
+
+
+
